@@ -10,6 +10,14 @@ const RADIUS = 26;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 let autoSpeakEnabled = true;
+/* =========================
+   API BASE URL (AUTO SWITCH)
+========================= */
+const BASE_URL =
+  location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://ai-interview-practice-program-6.onrender.com";
+
 
 /* =========================
    TYPEWRITER EFFECT (FIXED)
@@ -68,7 +76,8 @@ function loadQuestion() {
   const qEl = document.getElementById("question");
   qEl.innerText = "Loading question...";
 
-  fetch(`http://localhost:5000/api/interview/question/${currentSkill}`)
+ fetch(`${BASE_URL}/api/interview/question/${currentSkill}`)
+
     .then(res => res.json())
     .then(data => {
       const questionText = data.question || "No question received";
@@ -114,8 +123,8 @@ function submitAnswer(auto = false) {
 
   const answer = document.getElementById("answer").value.trim();
   const payload = { answer: answer || "No answer" };
+fetch(`${BASE_URL}/api/interview/answer/${currentSkill}`, {
 
-  fetch(`http://localhost:5000/api/interview/answer/${currentSkill}`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload)
@@ -225,7 +234,8 @@ function updateProgress() {
    HISTORY
 ========================= */
 function viewHistory() {
-  fetch("http://localhost:5000/api/interview/history")
+  fetch(`${BASE_URL}/api/interview/history`)
+
     .then(res => res.json())
     .then(data => {
       const tbody =
@@ -264,8 +274,8 @@ function closeHistory() {
 
 function clearHistory() {
   if (!confirm("Are you sure you want to clear history?")) return;
+fetch(`${BASE_URL}/api/interview/history`, {
 
-  fetch("http://localhost:5000/api/interview/history", {
     method: "DELETE"
   })
     .then(res => res.json())
