@@ -16,7 +16,7 @@ let autoSpeakEnabled = true;
 const BASE_URL =
   location.hostname === "localhost"
     ? "http://localhost:5000"
-    : "https://ai-interview-practice-program-6.onrender.com";
+    : "https://ai-interview-practice-program-10.onrender.com";
 
 
 /* =========================
