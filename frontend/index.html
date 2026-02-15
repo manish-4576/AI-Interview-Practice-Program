@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Interview Practice</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- 🌙 Dark Mode Toggle -->
+<button id="themeToggle" class="theme-toggle">🌙</button>
+
+<header class="top-bar glass">
+  <h1>🤖 AI Interview Practice</h1>
+
+  <div class="status">
+    <span id="questionCount">Q 1 / 30</span>
+
+    <!-- 🔵 Circular Timer -->
+    <div class="timer-circle">
+      <svg width="60" height="60">
+        <circle cx="30" cy="30" r="26" class="bg"></circle>
+        <circle cx="30" cy="30" r="26" class="progress" id="timerCircle"></circle>
+      </svg>
+      <span id="timerText">60</span>
+    </div>
+  </div>
+</header>
+
+<div class="progress-container glass">
+  <div id="progressBar"></div>
+</div>
+
+<main class="app-container">
+
+  <!-- Skill -->
+  <section class="card glass">
+    <h2>Select Skill</h2>
+    <select id="skill">
+      <option value="">-- Select Skill --</option>
+      <option value="HTML">HTML</option>
+      <option value="CSS">CSS</option>
+      <option value="Node.js">Node.js</option>
+    </select>
+    <button id="startSkillBtn">🚀 Start Interview</button>
+  </section>
+
+  <!-- Question -->
+  <section class="card glass">
+    <h2>Interview Question</h2>
+    <p id="question">Select a skill to start</p>
+    <button id="speakQuestionBtn">🔊 Listen</button>
+  </section>
+
+  <!-- Answer -->
+  <section class="card glass">
+    <h2>Your Answer</h2>
+    <textarea id="answer" placeholder="Type your answer..."></textarea>
+    <button class="submit" onclick="submitAnswer()">Submit</button>
+    <button id="startMicBtn">🎤 Speak</button>
+  </section>
+
+  <!-- Feedback -->
+  <section class="card glass">
+    <h2>Feedback</h2>
+    <div id="feedback">Awaiting response...</div>
+  </section>
+
+  <!-- History -->
+  <section class="card glass">
+    <h2>History</h2>
+    <div class="history-buttons">
+      <button id="viewHistoryBtn">View</button>
+      <button id="closeHistoryBtn">Close</button>
+      <button id="clearHistoryBtn">Clear</button>
+    </div>
+
+    <table id="historyTable" style="display:none;">
+
+      <thead>
+        <tr>
+          <th>Skill</th>
+          <th>Question</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

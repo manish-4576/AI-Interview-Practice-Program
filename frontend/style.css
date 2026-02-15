@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* 🌈 Background */
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  color: #fff;
+  transition: 0.3s;
+}
+
+/* 🌙 Dark mode */
+body.dark {
+  background: linear-gradient(135deg, #0f172a, #020617);
+}
+
+/* ✨ Glass effect */
+.glass {
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Header */
+.top-bar {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Layout */
+.app-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Cards */
+.card {
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #4f46e5, #06b6d4);
+  color: white;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.submit {
+  background: linear-gradient(45deg, #22c55e, #16a34a);
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  height: 120px;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Progress bar */
+.progress-container {
+  height: 6px;
+  margin: 10px 40px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #06b6d4);
+  transition: 0.4s;
+}
+
+/* 🔵 Circular Timer */
+.timer-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.timer-circle svg {
+  transform: rotate(-90deg);
+}
+
+.timer-circle .bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.2);
+  stroke-width: 4;
+}
+
+.timer-circle .progress {
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 4;
+  stroke-dasharray: 163;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+}
+
+#timerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+/* 🌙 Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* History table premium */
+#historyTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  display: none; /* 🔥 important */
+}
+
+#historyTable th {
+  background: rgba(79, 70, 229, 0.15);
+  padding: 10px;
+  text-align: left;
+}
+
+#historyTable td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.score-badge {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+.pulse {
+  animation: pulseGlow 1s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 2px red); }
+  50% { filter: drop-shadow(0 0 10px red); }
+  100% { filter: drop-shadow(0 0 2px red); }
+}
+
+/* ✅ Fix question spacing + premium readability */
+#question {
+  white-space: pre-wrap;      /* 🔥 preserves spaces & line breaks */
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+  word-spacing: 1px;
+  font-size: 16px;
+  font-weight: 500;
+}
